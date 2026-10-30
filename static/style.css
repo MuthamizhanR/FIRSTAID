@@ -1,0 +1,323 @@
+:root {
+    /* Claude-inspired Premium Dark Theme */
+    --bg-color: #1a1a1a;
+    --sidebar-bg: #212121;
+    --border-color: #333333;
+    --text-primary: #e5e5e5;
+    --text-secondary: #999999;
+    --accent-color: #d1b48f; /* A sophisticated gold/beige accent */
+    --accent-hover: #e8d0b3;
+    --link-color: #a3b8cc;
+    --hover-bg: #2d2d2d;
+    --active-bg: #333333;
+
+    /* Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: 'Merriweather', Georgia, serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 300px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header h2 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--accent-color);
+    margin-bottom: 4px;
+}
+
+.sidebar-header .subtitle {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.sidebar-content {
+    padding: 16px 10px;
+}
+
+.folder {
+    margin-bottom: 4px;
+}
+
+.folder-header {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: background-color 0.2s;
+    user-select: none;
+}
+
+.folder-header:hover {
+    background-color: var(--hover-bg);
+}
+
+.folder-icon {
+    margin-right: 10px;
+    color: var(--text-secondary);
+    display: flex;
+}
+
+.folder-contents {
+    display: none;
+    flex-direction: column;
+    padding-left: 24px;
+    margin-top: 2px;
+}
+
+.folder.active .folder-contents {
+    display: flex;
+}
+
+.file-link {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px 6px 8px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    border-radius: 6px;
+    margin-bottom: 2px;
+    transition: all 0.2s;
+}
+
+.file-link:hover {
+    background-color: var(--hover-bg);
+    color: var(--text-primary);
+}
+
+.file-link.active {
+    background-color: var(--active-bg);
+    color: var(--accent-color);
+}
+
+.file-icon {
+    margin-right: 8px;
+    display: flex;
+    opacity: 0.7;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 0 60px 0;
+    position: relative;
+    background-color: var(--bg-color);
+}
+
+.content-header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(26, 26, 26, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 10;
+}
+
+.breadcrumbs {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.breadcrumbs .current {
+    color: var(--text-primary);
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-secondary);
+}
+
+.empty-state svg {
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+.empty-state h2 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+/* Markdown Styling */
+.markdown-body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: #d4d4d4;
+    line-height: 1.8;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4 {
+    font-family: var(--font-sans);
+    color: var(--text-primary);
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-weight: 600;
+}
+
+.markdown-body h1 {
+    font-size: 2.2rem;
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5em;
+    color: var(--accent-color);
+}
+
+.markdown-body h2 {
+    font-size: 1.6rem;
+}
+
+.markdown-body h3 {
+    font-size: 1.3rem;
+}
+
+.markdown-body p {
+    margin-bottom: 1.5em;
+}
+
+.markdown-body strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.markdown-body em {
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.markdown-body ul, .markdown-body ol {
+    margin-bottom: 1.5em;
+    padding-left: 1.5em;
+}
+
+.markdown-body li {
+    margin-bottom: 0.5em;
+}
+
+/* Tables */
+.markdown-body table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 2em;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+}
+
+.markdown-body th, .markdown-body td {
+    border: 1px solid var(--border-color);
+    padding: 12px 16px;
+    text-align: left;
+}
+
+.markdown-body th {
+    background-color: var(--sidebar-bg);
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.markdown-body tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Links */
+.markdown-body a {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.markdown-body a:hover {
+    border-color: var(--link-color);
+}
+
+.markdown-body a.internal-link {
+    background-color: rgba(163, 184, 204, 0.1);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.markdown-body a.internal-link:hover {
+    background-color: rgba(163, 184, 204, 0.2);
+    border-bottom: none;
+}
+
+.markdown-body .broken-link {
+    color: #e57373;
+    background-color: rgba(229, 115, 115, 0.1);
+    padding: 2px 4px;
+    border-radius: 4px;
+    cursor: not-allowed;
+}
+
+/* Code */
+.markdown-body code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    background-color: var(--sidebar-bg);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.markdown-body pre {
+    background-color: var(--sidebar-bg);
+    padding: 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin-bottom: 1.5em;
+    border: 1px solid var(--border-color);
+}
+
+.markdown-body pre code {
+    background-color: transparent;
+    padding: 0;
+}

@@ -1,6 +1,0 @@
-## [[Biochemistry|Biochemistry]]
-
-
-This high-yield material includes [[Molecular|molecular]] biology, [[Genetics|genetics]], cell biology, and principles of [[Metabolism|metabolism]] (especially vitamins, cofactors, minerals, and single-enzyme-deficiency diseases). When studying metabolic pathways, emphasize important regulatory steps and enzyme deficiencies that result in disease, as well as reactions targeted by pharmacologic interventions. For example, understanding the defect in Lesch-Nyhan syndrome and its clinical implications (from presentation to management) is higher yield than memorizing every intermediate in the purine salvage pathway.
-
-Do not spend time learning details of organic chemistry, mechanisms, or physical chemistry. Detailed chemical structures are infrequently tested; however, many structures have been included here to help students learn reactions and the important enzymes involved. Familiarity with the biochemical techniques that have medical relevance—such as ELISA, immunoelectrophoresis, Southern blotting, and PCR—is useful. Review the related [[Biochemistry|biochemistry]] when studying [[Pharmacology|pharmacology]] or genetic diseases as a way to reinforce and integrate the material.

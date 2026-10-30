@@ -86,7 +86,6 @@ def split_into_chapters(input_path, output_dir):
             # We use a negative lookbehind/lookahead to avoid replacing inside existing links or partial words
             pattern = re.compile(r'(?<!\[\[)\b(' + re.escape(topic) + r')\b(?!\]\])', re.IGNORECASE)
 
-            # Simple approach: only link the first occurrence per file to avoid clutter
             def repl(match):
                 return f"[[{topic}|{match.group(1)}]]"
 
@@ -119,7 +118,10 @@ def split_into_chapters(input_path, output_dir):
 
     print(f"Split {input_path} into chapters with cross-linking in {output_dir}")
 
-import process_textbook
-process_textbook.extract_content("First Aid for the USMLE Step 1 2025 35th Edition_compressed_unlocked_Master.md", "knowledge_base.md")
-split_into_chapters("knowledge_base.md", "obsidian_vault")
-os.remove("knowledge_base.md")
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python split_chapters.py <input_knowledge_base_md>")
+        sys.exit(1)
+
+    input_file = sys.argv[1]
+    split_into_chapters(input_file, "obsidian_vault")
